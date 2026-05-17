@@ -1,0 +1,153 @@
+<!-- ========================= -->
+<!-- FILE: index.html -->
+<!-- ========================= -->
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Funcost Drinks</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="card">
+
+      <h1>🍹 FUNCOST DRINKS</h1>
+
+      <p class="subtitle">
+        Đặt nước nhanh tại đây 😭🔥
+      </p>
+
+      <form id="orderForm">
+
+        <!-- TÊN -->
+
+        <label>👤 Tên của bạn</label>
+
+        <input
+          type="text"
+          name="customer"
+          placeholder="Nhập tên..."
+          required
+        >
+
+        <!-- CHỌN NƯỚC -->
+
+        <label>🥤 Chọn món nước</label>
+
+        <select name="drink" required>
+
+          <option value="" disabled selected hidden>
+            -- Chọn món --
+          </option>
+
+          <option>Trà tắc</option>
+          <option>Trà đào</option>
+          <option>Trà chanh</option>
+          <option>Trà sữa</option>
+          <option>Nước cam</option>
+
+        </select>
+
+        <!-- SIZE -->
+
+        <label>📏 Size</label>
+
+        <select name="size" required>
+
+          <option value="" disabled selected hidden>
+            -- Chọn size --
+          </option>
+
+          <option>M</option>
+          <option>L</option>
+
+        </select>
+
+        <!-- SỐ LƯỢNG -->
+
+        <label>🔢 Số lượng</label>
+
+        <input
+          type="number"
+          name="quantity"
+          min="1"
+          value="1"
+          required
+        >
+
+        <!-- PHONE -->
+
+        <label>📱 Số điện thoại</label>
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Nhập số điện thoại..."
+          required
+        >
+
+        <!-- ĐỊA CHỈ -->
+
+        <label>📍 Vị trí giao hàng</label>
+
+        <input
+          type="text"
+          id="location"
+          name="location"
+          placeholder="Chưa lấy vị trí..."
+          readonly
+          required
+        >
+
+        <button
+          type="button"
+          id="locationBtn"
+        >
+
+          📍 Chọn vị trí hiện tại
+
+        </button>
+        <!-- GHI CHÚ -->
+
+        <label>📝 Ghi chú</label>
+
+        <textarea
+          name="note"
+          placeholder="Ví dụ: ít đá, ít ngọt..."
+        ></textarea>
+
+        <!-- BUTTON -->
+
+        <button type="submit"
+                id="submitBtn">
+
+          Đặt hàng
+
+        </button>
+
+      </form>
+
+      <p id="status"></p>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+/* ========================= */
+/* FILE: style.css */
+/* ========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  font-family:Arial,sans-serif;
+
+  background:
+  linear-gradient(
+    135deg,
+    #00b09b,
+    #96c93d
+  );
+
+  min-height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  padding:20px;
+}
+
+.container{
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+
+.card{
+
+  width:100%;
+  max-width:450px;
+
+  background:
+  rgba(255,255,255,0.18);
+
+  backdrop-filter:blur(10px);
+
+  border-radius:30px;
+
+  padding:30px;
+
+  color:white;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1{
+
+  text-align:center;
+
+  font-size:38px;
+
+  margin-bottom:10px;
+}
+
+.subtitle{
+
+  text-align:center;
+
+  margin-bottom:25px;
+
+  opacity:0.9;
+
+  font-size:18px;
+}
+
+label{
+
+  display:block;
+
+  margin-top:18px;
+
+  margin-bottom:8px;
+
+  font-size:18px;
+
+  font-weight:bold;
+}
+
+input,
+select,
+textarea{
+
+  width:100%;
+
+  padding:14px;
+
+  border:none;
+
+  border-radius:15px;
+
+  font-size:16px;
+
+  outline:none;
+}
+
+textarea{
+
+  resize:none;
+
+  height:90px;
+}
+
+select:invalid{
+  color:gray;
+}
+
+.map-btn{
+
+  display:block;
+
+  margin-top:12px;
+
+  text-align:center;
+
+  text-decoration:none;
+
+  background:white;
+
+  color:#00a884;
+
+  padding:12px;
+
+  border-radius:15px;
+
+  font-weight:bold;
+
+  transition:0.3s;
+}
+
+.map-btn:hover{
+
+  transform:scale(1.03);
+}
+
+button{
+
+  width:100%;
+
+  margin-top:25px;
+
+  border:none;
+
+  border-radius:15px;
+
+  padding:16px;
+
+  font-size:20px;
+
+  font-weight:bold;
+
+  background:white;
+
+  color:#00a884;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+button:hover{
+
+  transform:scale(1.03);
+}
+
+.loading{
+
+  opacity:0.7;
+
+  pointer-events:none;
+}
+
+#status{
+
+  text-align:center;
+
+  margin-top:20px;
+
+  font-size:18px;
+
+  font-weight:bold;
+}
+#locationBtn{
+
+  width:100%;
+
+  margin-top:10px;
+
+  border:none;
+
+  border-radius:15px;
+
+  padding:14px;
+
+  font-size:16px;
+
+  font-weight:bold;
+
+  background:#ffffff;
+
+  color:#00a884;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+#locationBtn:hover{
+
+  transform:scale(1.03);
+}
