@@ -47,7 +47,7 @@ locationBtn.addEventListener(
         () => {
 
           alert(
-            "Không lấy được vị trí 😭"
+            "Không lấy được vị trí, vui lòng thử lại!"
           );
 
         }
@@ -59,7 +59,7 @@ locationBtn.addEventListener(
     else{
 
       alert(
-        "Thiết bị không hỗ trợ GPS"
+        "Thiết bị không hỗ trợ GPS, vui lòng liên hệ lại với Phục Vụ để được tư vấn!"
       );
 
     }
