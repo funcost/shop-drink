@@ -12,7 +12,7 @@ const submitBtn =
 document.getElementById("submitBtn");
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycbwvu_hAOSSAxY8-zPVSQtni-0yPG9R2joRuXqNyD53x4T9vswyOSfwSpvYmKPr_Gaqr/exec";
+"https://script.google.com/macros/s/AKfycbza6SCaGRJ3oYFGATCeH-KJXtFqpiCFK-zkbeewwMccvW3DBySQi6ykQZCnbAh40HEZ/exec";
 
 const locationBtn =
 document.getElementById("locationBtn");
