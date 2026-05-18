@@ -1,5 +1,9 @@
+// =========================
+// FILE: script.js
+// =========================
+
 const form =
-document.getElementById("reviewForm");
+document.getElementById("orderForm");
 
 const statusText =
 document.getElementById("status");
@@ -8,8 +12,59 @@ const submitBtn =
 document.getElementById("submitBtn");
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycbwEhfQq2E-bEOUIO4rhf_cFWwC4F_Od8RLE7bD97YduDlqF3bqsAR9eilH4Ci99yXF32w/exec";
+"https://script.google.com/macros/s/AKfycbwvu_hAOSSAxY8-zPVSQtni-0yPG9R2joRuXqNyD53x4T9vswyOSfwSpvYmKPr_Gaqr/exec";
 
+const locationBtn =
+document.getElementById("locationBtn");
+
+const locationInput =
+document.getElementById("location");
+
+locationBtn.addEventListener(
+  "click",
+  () => {
+
+    if(navigator.geolocation){
+
+      navigator.geolocation.getCurrentPosition(
+
+        (position) => {
+
+          const lat =
+          position.coords.latitude;
+
+          const lng =
+          position.coords.longitude;
+
+          const mapLink =
+          `https://maps.google.com/?q=${lat},${lng}`;
+
+          locationInput.value =
+          mapLink;
+
+        },
+
+        () => {
+
+          alert(
+            "Không lấy được vị trí 😭"
+          );
+
+        }
+
+      );
+
+    }
+
+    else{
+
+      alert(
+        "Thiết bị không hỗ trợ GPS"
+      );
+
+    }
+
+});
 form.addEventListener(
   "submit",
   async (e) => {
@@ -19,24 +74,33 @@ form.addEventListener(
     submitBtn.classList.add("loading");
 
     submitBtn.innerText =
-    "Đang gửi...";
+    "Đang gửi đơn...";
 
     const formData =
     new FormData(form);
 
     const data = {
 
-      sweetness:
-      formData.get("sweetness"),
+      customer:
+      formData.get("customer"),
 
-      price:
-      formData.get("price"),
+      drink:
+      formData.get("drink"),
 
-      rating:
-      formData.get("rating"),
+      size:
+      formData.get("size"),
 
-      message:
-      formData.get("message")
+      quantity:
+      formData.get("quantity"),
+
+      phone:
+      formData.get("phone"),
+
+      location:
+      formData.get("location"),
+
+      note:
+      formData.get("note")
 
     };
 
@@ -56,12 +120,23 @@ form.addEventListener(
 
       console.log(result);
 
-      statusText.innerHTML =
-      "🎉 Cảm ơn bạn đã góp ý ❤️";
+      if(result.includes("success")){
 
-      form.reset();
+        window.location.href =
+        "success.html";
 
-    } catch(error){
+      }
+
+      else{
+
+        statusText.innerHTML =
+        "❌ " + result;
+
+      }
+
+    }
+
+    catch(error){
 
       console.error(error);
 
@@ -75,6 +150,6 @@ form.addEventListener(
     );
 
     submitBtn.innerText =
-    "Gửi đánh giá";
+    "Đặt hàng";
 
 });
