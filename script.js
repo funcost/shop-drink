@@ -23,6 +23,9 @@ document.getElementById("location");
 const drinkSelect =
 document.getElementById("drink");
 
+const sizeSelect =
+document.getElementById("size");
+
 const quantityInput =
 document.getElementById("quantity");
 
@@ -43,6 +46,10 @@ const SHOP_LAT = 18.5849801;
 const SHOP_LNG = 105.6226719;
 
 let currentDistance = 0;
+
+// =========================
+// TÍNH KHOẢNG CÁCH
+// =========================
 
 function calculateDistance(
   lat1,
@@ -84,35 +91,51 @@ function calculateDistance(
 
 }
 
-function updatePrice(){
+// =========================
+// UPDATE GIÁ
+// =========================
 
-  let drinkPrice = 0;
+function updatePrice(){
 
   const drink =
   drinkSelect.value;
 
+  const size =
+  sizeSelect.value;
+
   const quantity =
   Number(quantityInput.value);
 
-  const size =
-  document.getElementById("size").value;
+  let drinkPrice = 0;
 
-  // ===================
+  // chưa chọn đủ
+  if(!drink || !size){
+
+    drinkPriceText.innerHTML =
+    "Tiền nước: 0đ";
+
+    shipPriceText.innerHTML =
+    "Ship: 0đ";
+
+    totalPriceText.innerHTML =
+    "Tổng: 0đ";
+
+    return;
+
+  }
+
+  // =========================
   // GIÁ NƯỚC
-  // ===================
+  // =========================
 
   if(drink === "Trà tắc"){
 
     if(size === "M"){
-
       drinkPrice = 10000;
-
     }
 
     else if(size === "L"){
-
       drinkPrice = 15000;
-
     }
 
   }
@@ -122,27 +145,23 @@ function updatePrice(){
   ){
 
     if(size === "M"){
-
       drinkPrice = 14000;
-
     }
 
     else if(size === "L"){
-
       drinkPrice = 19000;
-
     }
 
   }
 
-  // ===================
-  // QUÁ XA
-  // ===================
+  // =========================
+  // NGOÀI PHẠM VI
+  // =========================
 
   if(currentDistance > 15){
 
     distanceText.innerHTML =
-    `❌ Quá phạm vi giao hàng`;
+    "❌ Quá phạm vi giao hàng";
 
     drinkPriceText.innerHTML =
     "";
@@ -153,34 +172,36 @@ function updatePrice(){
     totalPriceText.innerHTML =
     "";
 
+    submitBtn.disabled = true;
+
     return;
 
   }
 
-  // ===================
+  submitBtn.disabled = false;
+
+  // =========================
   // TÍNH TIỀN
-  // ===================
+  // =========================
 
   const drinkTotal =
   drinkPrice * quantity;
 
-  // ship làm tròn đẹp
+  // ship 3k/km
   let ship =
-  Math.ceil(currentDistance) * 3000;
+  Math.round(currentDistance * 3000);
 
   // tối thiểu 10k
   if(ship < 10000){
-
     ship = 10000;
-
   }
 
   const total =
   drinkTotal + ship;
 
-  // ===================
+  // =========================
   // HIỂN THỊ
-  // ===================
+  // =========================
 
   distanceText.innerHTML =
   `Khoảng cách: ${currentDistance.toFixed(1)} km`;
@@ -195,6 +216,10 @@ function updatePrice(){
   `Tổng: ${total.toLocaleString()}đ`;
 
 }
+
+// =========================
+// LẤY GPS
+// =========================
 
 locationBtn.addEventListener(
   "click",
@@ -217,6 +242,7 @@ locationBtn.addEventListener(
 
           locationInput.value =
           mapLink;
+
           currentDistance =
           calculateDistance(
 
@@ -233,6 +259,8 @@ locationBtn.addEventListener(
 
         () => {
 
+          currentDistance = 0;
+
           alert(
             "Không lấy được vị trí, vui lòng thử lại!"
           );
@@ -243,23 +271,43 @@ locationBtn.addEventListener(
 
     }
 
-
     else{
 
-    alert(
-      "Thiết bị không hỗ trợ GPS, vui lòng liên hệ lại với Phục Vụ để được tư vấn!"
-    );
+      alert(
+        "Thiết bị không hỗ trợ GPS!"
+      );
+
+    }
 
   }
+);
 
-  });   
+// =========================
+// SUBMIT FORM
+// =========================
+
 form.addEventListener(
   "submit",
   async (e) => {
 
     e.preventDefault();
 
-    submitBtn.classList.add("loading");
+    // chưa lấy vị trí
+    if(!locationInput.value){
+
+      alert(
+        "Vui lòng lấy vị trí giao hàng!"
+      );
+
+      return;
+
+    }
+
+    submitBtn.classList.add(
+      "loading"
+    );
+
+    submitBtn.disabled = true;
 
     submitBtn.innerText =
     "Đang gửi đơn...";
@@ -308,7 +356,9 @@ form.addEventListener(
 
       console.log(result);
 
-      if(result.includes("success")){
+      if(
+        result.includes("success")
+      ){
 
         window.location.href =
         "success.html";
@@ -337,11 +387,24 @@ form.addEventListener(
       "loading"
     );
 
+    submitBtn.disabled = false;
+
     submitBtn.innerText =
     "Đặt hàng";
+
   }
 );
+
+// =========================
+// EVENT
+// =========================
+
 drinkSelect.addEventListener(
+  "change",
+  updatePrice
+);
+
+sizeSelect.addEventListener(
   "change",
   updatePrice
 );
@@ -350,5 +413,9 @@ quantityInput.addEventListener(
   "input",
   updatePrice
 );
+
+// =========================
+// LOAD
+// =========================
 
 updatePrice();
