@@ -23,7 +23,7 @@
   <div class="container">
 
     <div class="card">
-      
+
       <h1>🍹 Trà Tắc</h1>
 
       <p class="hotline">
@@ -48,6 +48,8 @@
       Đặt nước nhanh tại đây 🔥
       </p>
 
+      <form id="orderForm">
+
       <label>👤 Tên của bạn</label>
 
       <input
@@ -59,7 +61,7 @@
 
       <label>🥤 Chọn món nước</label>
 
-      <select name="drink" required>
+      <select id="drink" name="drink" required>
 
       <option value="" disabled selected hidden>
       -- Chọn món --
@@ -88,6 +90,7 @@
 
       <input
       type="number"
+      id="quantity"
       name="quantity"
       min="1"
       value="1"
@@ -152,6 +155,7 @@
       <h2 id="totalPrice">
       Tổng: 0đ
       </h2>
+    </form>
 
   </div>
 
