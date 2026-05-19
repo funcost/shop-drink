@@ -94,9 +94,26 @@ function updatePrice(){
   const quantity =
   Number(quantityInput.value);
 
+  const size =
+  document.getElementById("size").value;
+
+  // ===================
+  // GIÁ NƯỚC
+  // ===================
+
   if(drink === "Trà tắc"){
 
-    drinkPrice = 10000;
+    if(size === "M"){
+
+      drinkPrice = 10000;
+
+    }
+
+    else if(size === "L"){
+
+      drinkPrice = 15000;
+
+    }
 
   }
 
@@ -104,20 +121,66 @@ function updatePrice(){
     drink === "Chanh giã tay"
   ){
 
-    drinkPrice = 14000;
+    if(size === "M"){
+
+      drinkPrice = 14000;
+
+    }
+
+    else if(size === "L"){
+
+      drinkPrice = 19000;
+
+    }
 
   }
+
+  // ===================
+  // QUÁ XA
+  // ===================
+
+  if(currentDistance > 15){
+
+    distanceText.innerHTML =
+    `❌ Quá phạm vi giao hàng`;
+
+    drinkPriceText.innerHTML =
+    "";
+
+    shipPriceText.innerHTML =
+    "";
+
+    totalPriceText.innerHTML =
+    "";
+
+    return;
+
+  }
+
+  // ===================
+  // TÍNH TIỀN
+  // ===================
 
   const drinkTotal =
   drinkPrice * quantity;
 
-  const ship =
-  Math.round(
-    currentDistance * 2500
-  );
+  // ship làm tròn đẹp
+  let ship =
+  Math.ceil(currentDistance) * 3000;
+
+  // tối thiểu 10k
+  if(ship < 10000){
+
+    ship = 10000;
+
+  }
 
   const total =
   drinkTotal + ship;
+
+  // ===================
+  // HIỂN THỊ
+  // ===================
 
   distanceText.innerHTML =
   `Khoảng cách: ${currentDistance.toFixed(1)} km`;
