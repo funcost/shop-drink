@@ -192,8 +192,8 @@ function updatePrice(){
   Math.round(currentDistance * 3000);
 
   // tối thiểu 10k
-  if(ship < 10000){
-    ship = 10000;
+  if(ship < 3000){
+    ship = 3000;
   }
 
   const total =
