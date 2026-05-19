@@ -12,11 +12,7 @@ const submitBtn =
 document.getElementById("submitBtn");
 
 const API_URL =
-<<<<<<< HEAD
 "https://script.google.com/macros/s/AKfycbzPg1hpOaTzNXHQ2RLqqHQFejzod5cFgtJIg_en9UAj-TuRRYcc_snswLYPlpRhAqd3/exec";
-=======
-"https://script.google.com/macros/s/AKfycbzN5FhkoUB3IRdww3_6RwKPYlkmrb5C9kQuuXmLq3RHEIq5x-TlB5_cIeCfdN5B_6OR/exec";
->>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
 
 const locationBtn =
 document.getElementById("locationBtn");
@@ -24,7 +20,6 @@ document.getElementById("locationBtn");
 const locationInput =
 document.getElementById("location");
 
-<<<<<<< HEAD
 const drinkSelect =
 document.getElementById("drink");
 
@@ -201,8 +196,6 @@ function updatePrice(){
 
 }
 
-=======
->>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
 locationBtn.addEventListener(
   "click",
   () => {
@@ -224,7 +217,6 @@ locationBtn.addEventListener(
 
           locationInput.value =
           mapLink;
-<<<<<<< HEAD
           currentDistance =
           calculateDistance(
 
@@ -236,19 +228,13 @@ locationBtn.addEventListener(
           );
 
           updatePrice();
-=======
->>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
 
         },
 
         () => {
 
           alert(
-<<<<<<< HEAD
             "Không lấy được vị trí, vui lòng thử lại!"
-=======
-            "Không lấy được vị trí 😭"
->>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
           );
 
         }
@@ -260,11 +246,7 @@ locationBtn.addEventListener(
     else{
 
       alert(
-<<<<<<< HEAD
         "Thiết bị không hỗ trợ GPS, vui lòng liên hệ lại với Phục Vụ để được tư vấn!"
-=======
-        "Thiết bị không hỗ trợ GPS"
->>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
       );
 
     }
@@ -357,7 +339,6 @@ form.addEventListener(
     submitBtn.innerText =
     "Đặt hàng";
 
-<<<<<<< HEAD
 });
 drinkSelect.addEventListener(
   "change",
@@ -370,6 +351,3 @@ quantityInput.addEventListener(
 );
 
 updatePrice();
-=======
-});
->>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
