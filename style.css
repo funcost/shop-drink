@@ -65,6 +65,7 @@ h1{
   margin-bottom:10px;
 }
 
+<<<<<<< HEAD
 .hotline{
 
   font-size:18px;
@@ -75,6 +76,8 @@ h1{
 
 }
 
+=======
+>>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
 .subtitle{
 
   text-align:center;
@@ -230,6 +233,7 @@ button:hover{
 #locationBtn:hover{
 
   transform:scale(1.03);
+<<<<<<< HEAD
 }
 .price-box{
 
@@ -257,4 +261,6 @@ button:hover{
 
   font-size:32px;
 
+=======
+>>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
 }
