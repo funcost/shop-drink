@@ -243,15 +243,16 @@ locationBtn.addEventListener(
 
     }
 
+
     else{
 
-      alert(
-        "Thiết bị không hỗ trợ GPS, vui lòng liên hệ lại với Phục Vụ để được tư vấn!"
-      );
+    alert(
+      "Thiết bị không hỗ trợ GPS, vui lòng liên hệ lại với Phục Vụ để được tư vấn!"
+    );
 
-    }
+  }
 
-});
+  });   
 form.addEventListener(
   "submit",
   async (e) => {
@@ -338,8 +339,8 @@ form.addEventListener(
 
     submitBtn.innerText =
     "Đặt hàng";
-
-});
+  }
+);
 drinkSelect.addEventListener(
   "change",
   updatePrice
