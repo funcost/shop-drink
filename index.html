@@ -23,8 +23,7 @@
   <div class="container">
 
     <div class="card">
-
-<<<<<<< HEAD
+      
       <h1>🍹 Trà Tắc</h1>
 
       <p class="hotline">
@@ -46,172 +45,115 @@
       </p>
 
       <p class="subtitle">
-        Đặt nước nhanh tại đây 🔥
-=======
-      <h1>🍹 FUNCOST DRINKS</h1>
-
-      <p class="subtitle">
-        Đặt nước nhanh tại đây 😭🔥
->>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
+      Đặt nước nhanh tại đây 🔥
       </p>
 
-      <form id="orderForm">
+      <label>👤 Tên của bạn</label>
 
-        <!-- TÊN -->
+      <input
+      type="text"
+      name="customer"
+      placeholder="Nhập tên..."
+      required
+      >
 
-        <label>👤 Tên của bạn</label>
+      <label>🥤 Chọn món nước</label>
 
-        <input
-          type="text"
-          name="customer"
-          placeholder="Nhập tên..."
-          required
-        >
+      <select name="drink" required>
 
-        <!-- CHỌN NƯỚC -->
+      <option value="" disabled selected hidden>
+      -- Chọn món --
+      </option>
 
-        <label>🥤 Chọn món nước</label>
+      <option>Trà tắc</option>
 
-<<<<<<< HEAD
-        <select
-          id="drink"
-          name="drink"
-          required
-        >
-=======
-        <select name="drink" required>
->>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
+      <option>Chanh giã tay</option>
 
-          <option value="" disabled selected hidden>
-            -- Chọn món --
-          </option>
+      </select>
 
-          <option>Trà tắc</option>
-<<<<<<< HEAD
-          <option>Chanh giã tay</option>
-=======
-          <option>Trà đào</option>
-          <option>Trà chanh</option>
-          <option>Trà sữa</option>
-          <option>Nước cam</option>
->>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
+      <label>📏 Size</label>
 
-        </select>
+      <select name="size" required>
 
-        <!-- SIZE -->
+      <option value="" disabled selected hidden>
+      -- Chọn size --
+      </option>
 
-        <label>📏 Size</label>
+      <option>M</option>
+      <option>L</option>
 
-<<<<<<< HEAD
-        <select id="size" name="size" required>
-=======
-        <select name="size" required>
->>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
+      </select>
 
-          <option value="" disabled selected hidden>
-            -- Chọn size --
-          </option>
+      <label>🔢 Số lượng</label>
 
-          <option>M</option>
-          <option>L</option>
+      <input
+      type="number"
+      name="quantity"
+      min="1"
+      value="1"
+      required
+      >
 
-        </select>
+      <label>📱 Số điện thoại</label>
 
-        <!-- SỐ LƯỢNG -->
+      <input
+      type="tel"
+      name="phone"
+      placeholder="Nhập số điện thoại..."
+      required
+      >
 
-        <label>🔢 Số lượng</label>
+      <label>📍 Vị trí giao hàng</label>
 
-        <input
-          type="number"
-<<<<<<< HEAD
-          id="quantity"
-=======
->>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
-          name="quantity"
-          min="1"
-          value="1"
-          required
-        >
+      <input
+      type="text"
+      id="location"
+      name="location"
+      placeholder="Chưa lấy vị trí..."
+      readonly
+      required
+      >
 
-        <!-- PHONE -->
+      <button
+      type="button"
+      id="locationBtn"
+      >
 
-        <label>📱 Số điện thoại</label>
+      📍 Chọn vị trí hiện tại
 
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Nhập số điện thoại..."
-          required
-        >
+      </button>
 
-        <!-- ĐỊA CHỈ -->
+      <label>📝 Ghi chú</label>
 
-        <label>📍 Vị trí giao hàng</label>
+      <textarea
+      name="note"
+      placeholder="Ví dụ: ít đá, ít ngọt..."
+      ></textarea>
 
-        <input
-          type="text"
-          id="location"
-          name="location"
-          placeholder="Chưa lấy vị trí..."
-          readonly
-          required
-        >
+      <button type="submit"
+      id="submitBtn">
 
-        <button
-          type="button"
-          id="locationBtn"
-        >
+      Đặt hàng
 
-          📍 Chọn vị trí hiện tại
+      </button>
 
-        </button>
-        <!-- GHI CHÚ -->
-
-        <label>📝 Ghi chú</label>
-
-        <textarea
-          name="note"
-          placeholder="Ví dụ: ít đá, ít ngọt..."
-        ></textarea>
-
-        <!-- BUTTON -->
-
-        <button type="submit"
-                id="submitBtn">
-
-          Đặt hàng
-
-        </button>
-
-      </form>
-
-      <p id="status"></p>
-
-    </div>
-
-  </div>
-<<<<<<< HEAD
-  <div class="price-box">
-
-    <p id="distanceText">
+      <p id="distanceText">
       Khoảng cách: 0 km
-    </p>
+      </p>
 
-    <p id="drinkPrice">
+      <p id="drinkPrice">
       Tiền nước: 0đ
-    </p>
+      </p>
 
-    <p id="shipPrice">
+      <p id="shipPrice">
       Ship: 0đ
-    </p>
+      </p>
 
-    <h2 id="totalPrice">
+      <h2 id="totalPrice">
       Tổng: 0đ
-    </h2>
+      </h2>
 
   </div>
-=======
->>>>>>> ce018839dacb68c1cff0ebf81adf16ee99c5afa7
 
   <script src="script.js"></script>
 
