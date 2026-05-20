@@ -258,3 +258,74 @@ button:hover{
   font-size:32px;
 
 }
+.open-time{
+
+  text-align:center;
+
+  margin-bottom:20px;
+
+  font-size:18px;
+
+  font-weight:bold;
+
+}
+
+.price-box{
+
+  margin-top:25px;
+
+  background:white;
+
+  color:#333;
+
+  padding:20px;
+
+  border-radius:20px;
+
+}
+
+.price-box p{
+
+  margin:10px 0;
+
+  font-size:18px;
+
+}
+
+.price-box h2{
+
+  margin-top:15px;
+
+  color:#00a884;
+
+}
+
+.zalo-btn{
+
+  display:block;
+
+  margin-top:20px;
+
+  text-align:center;
+
+  text-decoration:none;
+
+  background:#0068ff;
+
+  color:white;
+
+  padding:14px;
+
+  border-radius:15px;
+
+  font-weight:bold;
+
+  transition:0.3s;
+
+}
+
+.zalo-btn:hover{
+
+  transform:scale(1.03);
+
+}

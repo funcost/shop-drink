@@ -121,6 +121,10 @@
       Tụi mình sẽ giao sớm nhất có thể 🙏
     </p>
 
+    <p id="deliveryTime">
+    🚚 Đang tính thời gian giao...
+    </p>
+
     <a href="index.html">
 
       Quay lại ↩
@@ -128,6 +132,27 @@
     </a>
 
   </div>
+  <script>
+
+  const params =
+  new URLSearchParams(
+  window.location.search
+  );
+
+  const time =
+  params.get("time");
+
+  if(time){
+
+    document.getElementById(
+      "deliveryTime"
+    ).innerHTML =
+
+    `🚚 Dự kiến giao trong khoảng ${time} phút`;
+
+  }
+
+  </script>
 
 </body>
 

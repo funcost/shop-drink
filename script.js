@@ -47,6 +47,8 @@ const SHOP_LNG = 105.6226719;
 
 let currentDistance = 0;
 
+let estimatedMinutes = 0;
+
 // =========================
 // TÍNH KHOẢNG CÁCH
 // =========================
@@ -125,6 +127,30 @@ function updatePrice(){
   }
 
   // =========================
+  // NGOÀI PHẠM VI
+  // =========================
+
+  if(currentDistance > 15){
+
+    distanceText.innerHTML =
+    "❌ Quá phạm vi giao hàng";
+
+    drinkPriceText.innerHTML =
+    "";
+
+    shipPriceText.innerHTML =
+    "";
+
+    totalPriceText.innerHTML =
+    "";
+
+    submitBtn.disabled = true;
+
+    return;
+
+  }
+
+  // =========================
   // GIÁ NƯỚC
   // =========================
 
@@ -154,30 +180,6 @@ function updatePrice(){
 
   }
 
-  // =========================
-  // NGOÀI PHẠM VI
-  // =========================
-
-  if(currentDistance > 15){
-
-    distanceText.innerHTML =
-    "❌ Quá phạm vi giao hàng";
-
-    drinkPriceText.innerHTML =
-    "";
-
-    shipPriceText.innerHTML =
-    "";
-
-    totalPriceText.innerHTML =
-    "";
-
-    submitBtn.disabled = true;
-
-    return;
-
-  }
-
   submitBtn.disabled = false;
 
   // =========================
@@ -191,13 +193,19 @@ function updatePrice(){
   let ship =
   Math.round(currentDistance * 3000);
 
-  // tối thiểu 10k
+  // tối thiểu 3k
   if(ship < 3000){
     ship = 3000;
   }
 
   const total =
   drinkTotal + ship;
+
+  // vận tốc 30km/h
+  estimatedMinutes =
+  Math.ceil(
+    ((currentDistance / 30) * 60) + 5
+  );
 
   // =========================
   // HIỂN THỊ
@@ -243,8 +251,12 @@ locationBtn.addEventListener(
           locationInput.value =
           mapLink;
 
+          statusText.innerHTML =
+          "✅ Đã lấy vị trí thành công";
+
           currentDistance =
           calculateDistance(
+            
 
             SHOP_LAT,
             SHOP_LNG,
@@ -252,6 +264,8 @@ locationBtn.addEventListener(
             lng
 
           );
+          console.log(lat, lng);
+          console.log(currentDistance);
 
           updatePrice();
 
@@ -360,8 +374,15 @@ form.addEventListener(
         result.includes("success")
       ){
 
-        window.location.href =
-        "success.html";
+        statusText.innerHTML =
+        "✅ Đặt hàng thành công!";
+
+        setTimeout(() => {
+
+          window.location.href =
+          `success.html?time=${estimatedMinutes}`;
+
+        }, 1000);
 
       }
 
