@@ -329,3 +329,10 @@ button:hover{
   transform:scale(1.03);
 
 }
+.gps-note{
+  font-size:14px;
+  color:#fff;
+  opacity:0.9;
+  margin-top:6px;
+  margin-bottom:10px;
+}

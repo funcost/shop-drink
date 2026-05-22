@@ -12,7 +12,7 @@ const submitBtn =
 document.getElementById("submitBtn");
 
 const API_URL =
-"https://script.google.com/macros/s/AKfycbzPg1hpOaTzNXHQ2RLqqHQFejzod5cFgtJIg_en9UAj-TuRRYcc_snswLYPlpRhAqd3/exec";
+"https://script.google.com/macros/s/AKfycbyC1vAW7zJhGffyj4ns-wkCTNa70-cvGJwfxIqj1jrs0TrJwlH59FXKAzDp2bTbUuyf/exec";
 
 const locationBtn =
 document.getElementById("locationBtn");
@@ -48,6 +48,12 @@ const SHOP_LNG = 105.6226719;
 let currentDistance = 0;
 
 let estimatedMinutes = 0;
+
+let ship = 0;
+
+let drinkTotal = 0;
+
+let total = 0;
 
 // =========================
 // TÍNH KHOẢNG CÁCH
@@ -186,19 +192,13 @@ function updatePrice(){
   // TÍNH TIỀN
   // =========================
 
-  const drinkTotal =
+  drinkTotal =
   drinkPrice * quantity;
 
-  // ship 3k/km
-  let ship =
+  ship =
   Math.round(currentDistance * 3000);
 
-  // tối thiểu 3k
-  if(ship < 3000){
-    ship = 3000;
-  }
-
-  const total =
+  total =
   drinkTotal + ship;
 
   // vận tốc 30km/h
@@ -331,28 +331,43 @@ form.addEventListener(
 
     const data = {
 
-      customer:
-      formData.get("customer"),
+    customer:
+    formData.get("customer"),
 
-      drink:
-      formData.get("drink"),
+    drink:
+    formData.get("drink"),
 
-      size:
-      formData.get("size"),
+    size:
+    formData.get("size"),
 
-      quantity:
-      formData.get("quantity"),
+    quantity:
+    formData.get("quantity"),
 
-      phone:
-      formData.get("phone"),
+    phone:
+    formData.get("phone"),
 
-      location:
-      formData.get("location"),
+    location:
+    formData.get("location"),
 
-      note:
-      formData.get("note")
+    note:
+    formData.get("note"),
 
-    };
+    distance:
+    currentDistance.toFixed(1),
+
+    ship:
+    ship,
+
+    drinkTotal:
+    drinkTotal,
+
+    total:
+    total,
+
+    estimatedMinutes:
+    estimatedMinutes
+
+  };
 
     try {
 
