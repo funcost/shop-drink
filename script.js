@@ -45,7 +45,7 @@ const SHOP_LAT = 18.5849801;
 
 const SHOP_LNG = 105.6226719;
 
-let currentDistance = 0;
+let currentDistance = null;
 
 let estimatedMinutes = 0;
 
@@ -167,7 +167,7 @@ function updatePrice(){
     }
 
     else if(size === "L"){
-      drinkPrice = 15000;
+      drinkPrice = 13000;
     }
 
   }
@@ -177,11 +177,11 @@ function updatePrice(){
   ){
 
     if(size === "M"){
-      drinkPrice = 14000;
+      drinkPrice = 12000;
     }
 
     else if(size === "L"){
-      drinkPrice = 19000;
+      drinkPrice = 15000;
     }
 
   }
@@ -192,11 +192,33 @@ function updatePrice(){
   // TÍNH TIỀN
   // =========================
 
+  if(currentDistance === null){
+
+    distanceText.innerHTML =
+    "📍 Chưa lấy vị trí";
+
+    drinkPriceText.innerHTML =
+    `Tiền nước: ${(drinkPrice * quantity).toLocaleString()}đ`;
+
+    shipPriceText.innerHTML =
+    "Ship: ?";
+
+    totalPriceText.innerHTML =
+    "Tổng: ?";
+
+    return;
+
+  }
+
   drinkTotal =
   drinkPrice * quantity;
 
+  // 1k/km, làm tròn lên
   ship =
-  Math.round(currentDistance * 3000);
+  Math.max(
+    1000,
+    Math.ceil(currentDistance) * 1000
+  );
 
   total =
   drinkTotal + ship;
@@ -222,9 +244,7 @@ function updatePrice(){
 
   totalPriceText.innerHTML =
   `Tổng: ${total.toLocaleString()}đ`;
-
 }
-
 // =========================
 // LẤY GPS
 // =========================
