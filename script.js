@@ -293,7 +293,7 @@ locationBtn.addEventListener(
 
         () => {
 
-          currentDistance = 0;
+          currentDistance = null;
 
           alert(
             "Không lấy được vị trí, vui lòng thử lại!"
@@ -373,7 +373,9 @@ form.addEventListener(
     formData.get("note"),
 
     distance:
-    currentDistance.toFixed(1),
+    currentDistance
+    ? currentDistance.toFixed(1)
+    : "Chưa lấy GPS",
 
     ship:
     ship,
